@@ -1,10 +1,13 @@
 package com.ignite.eif_pages;
 
+import com.ignite.utilities.BrowserUtils;
 import com.ignite.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import static com.ignite.utilities.BrowserUtils.waitFor;
 
 public class Schools_Pg {
 
@@ -67,7 +70,13 @@ public class Schools_Pg {
 
 
     public void selectSchool(String s) {
-        schoolName(s).click();
-        next_Btn.click();
+        waitFor(2);
+        try {
+            schoolName(s).click();
+            next_Btn.click();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(s + " is not a valid school name.");
+        }
     }
 }

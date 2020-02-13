@@ -36,4 +36,55 @@ public class EIF_steps {
 
         Assert.assertTrue(cpObj.confirmation_no.isDisplayed());
     }
+
+
+
+    @Given("User is in the {string} page")
+    public void user_is_in_the_page(String page) {
+        Driver.getDriver().get(ConfigReader.getKey("noIntro"));
+        navigateTo(page);
+    }
+
+    @Given("user select the {string} school")
+    public void user_select_the(String school) {
+        sclpObj.selectSchool(school);
+        sclpObj.next_Btn.click();
+    }
+
+    @Given("user select the <order> school")
+    public void userSelectTheOrderSchool(int order) {
+        sclpObj.selectSchool(order).click();
+        sclpObj.next_Btn.click();
+    }
+
+    @Given("user select the {int} school")
+    public void user_select_the_school(Integer order) {
+        sclpObj.selectSchool(order).click();
+        sclpObj.next_Btn.click();
+    }
+
+    @Then("user completes the registration")
+    public void userCompletesTheRegistration() {
+        fpObj.finish_Btn.click();
+    }
+
+    private void navigateTo(String page) {
+        switch (page){
+            case "student":
+                ppObj.fillParentForm(myParent);
+                break;
+            case "map":
+                ppObj.fillParentForm(myParent);
+                spObj.fillStudentForm(myStudent);
+                waitFor(2);
+                break;
+            case "finish":
+                ppObj.fillParentForm(myParent);
+                spObj.fillStudentForm(myStudent);
+                sclpObj.selectSchool(1);
+                break;
+            default:
+                // default page is parent page
+        }
+    }
 }
