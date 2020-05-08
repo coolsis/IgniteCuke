@@ -2,6 +2,7 @@ package com.ignite.pojos;
 
 
 import com.github.javafaker.Faker;
+import org.junit.Test;
 
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -34,6 +35,16 @@ public class Student {
         // parentRelation = relationShipList.get(new Random().nextInt(relationShipList.size()));
 
         gender = genderList.get(createNew.number().numberBetween(0,2));
+    }
+
+
+    @Test
+    public void lambdaSample(){
+
+        String text = "Google News is a news aggregator app developed by Google. It presents a continuous, customizable flow of articles organized from thousands of publishers and magazines. Google News is available as an app on Android, iOS, and the Web. Google released a beta version in September 2002 and the official app in January 2006.";
+
+
+//        text.split(" ").forEach(p -> System.out.println("Item: " +p));
     }
 
 

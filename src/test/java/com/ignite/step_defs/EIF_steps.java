@@ -23,7 +23,7 @@ public class EIF_steps {
 
     @Given("user get EnrollmentInquiryForm page")
     public void user_get_EnrollmentInquiryForm_page() {
-        Driver.getDriver().get(ConfigReader.getKey("noIntro"));
+        Driver.getDriver().get(ConfigReader.getKey("url"));
     }
 
     @Then("user completes a happy path")
@@ -35,6 +35,8 @@ public class EIF_steps {
         waitFor(2);
 
         Assert.assertTrue(cpObj.confirmation_no.isDisplayed());
+
+        String confirmationCode = cpObj.confirmation_no.getText();
     }
 
 

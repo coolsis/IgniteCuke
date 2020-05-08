@@ -27,6 +27,15 @@ public class Student_Pg {
     @FindBy(id = "dateofbirth_1")
     public WebElement dateOfBirth;
 
+    @FindBy(id = "year_1")
+    public WebElement dobYear;
+
+    @FindBy(id = "month_1")
+    public WebElement dobMonth;
+
+    @FindBy(id = "day_1")
+    public WebElement dobDay;
+
     @FindBy(id = "gender_1")
     public WebElement genderSelect;
 
@@ -46,6 +55,12 @@ public class Student_Pg {
     @FindBy(linkText = "Previous")
     public WebElement previous_Btn;
 
+
+    @FindBy(className = "buttonRoundedOver")
+    public WebElement noGradeButton;
+
+
+
     public Student_Pg() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
@@ -56,11 +71,24 @@ public class Student_Pg {
         System.out.println(myStudent.toString());
         waitFor(2);
 
+        try {
+            if(noGradeButton.isDisplayed()){
+                noGradeButton.click();
+                waitFor(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         selectFromDropdown(parentRelation, myStudent.parentRelation);
 
         firstName.sendKeys(myStudent.firstName);
         lastName.sendKeys(myStudent.lastName);
-        dateOfBirth.sendKeys(myStudent.dateOfBird);
+        selectFromDropdown(dobYear,myStudent.dateOfBird.substring(6) );
+        selectFromDropdown(dobMonth,"January");
+        selectFromDropdown(dobDay,"1");
+
+        //dateOfBirth.sendKeys(myStudent.dateOfBird);
         lastName.click();
         selectFromDropdown(genderSelect, myStudent.gender);
 

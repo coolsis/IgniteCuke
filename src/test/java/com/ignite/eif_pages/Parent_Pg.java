@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import static com.ignite.utilities.BrowserUtils.selectFromDropdown;
+import static com.ignite.utilities.BrowserUtils.waitFor;
 
 public class Parent_Pg {
 
@@ -60,6 +61,7 @@ public class Parent_Pg {
 
 
     public void fillParentForm(Parent parent) {
+        waitFor(8);
         System.out.println(parent.toString());
 
         parentFirstName.sendKeys(parent.firstName);
