@@ -78,6 +78,25 @@ public class ExcelUtils {
         return data;
     }
 
+
+    public List<Map<String, String>> getDataMapRow() {
+        // get all rows
+        List<String> rows = getColumn(0);
+        //rows.forEach(System.out::println);
+        // this will be returned
+        List<Map<String, String>> data = new ArrayList<>();
+
+        for (int i = 1; i < columnCount(); i++) {
+            Map<String, String> columnMap = new HashMap<String, String>();
+            for (int j = 1; j < rowCount(); j++) {
+                columnMap.put(rows.get(j), workSheet.getRow(j).getCell(i).toString());
+            }
+            data.add(columnMap);
+        }
+        return data;
+    }
+
+
     public List<String> getColumnsNames() {
         List<String> columns = new ArrayList<>();
 
@@ -85,6 +104,29 @@ public class ExcelUtils {
             columns.add(cell.toString());
         }
         return columns;
+    }
+
+
+    public List<String> getRowsNames() {
+        List<String> rows = new ArrayList<>();
+        int totalRow = workSheet.getLastRowNum();
+
+        for (int i = 0; i < totalRow; i++) {
+            Cell cell = workSheet.getRow(i).getCell(0);
+            rows.add(cell.toString());
+        }
+        return rows;
+    }
+
+    public List<String> getColumn(int column) {
+        List<String> rows = new ArrayList<>();
+        int totalRow = workSheet.getLastRowNum();
+
+        for (int i = 0; i < totalRow; i++) {
+            Cell cell = workSheet.getRow(i).getCell(column);
+            rows.add(cell.toString());
+        }
+        return rows;
     }
 
     public void setCellData(String value, int rowNum, int colNum) {
@@ -124,7 +166,7 @@ public class ExcelUtils {
     }
 
 
-    public void printZigZag(String word, int line){
+    public void printZigZag(String word, int line) {
 
     }
 
