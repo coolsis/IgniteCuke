@@ -43,7 +43,7 @@ public class SampleSQL {
         String password = "Eh7ruY3!p@82";
         String connectionUrl = "jdbc:sqlserver://"+url+";databaseName=CoolSIS_101;user="+user+";password="+password;
 
-        String applicationNo = "5902002580";
+        String applicationNo = "5902002581";
 
         connection = DriverManager.getConnection(connectionUrl);
         //We need to create a statement

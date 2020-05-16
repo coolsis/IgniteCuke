@@ -45,7 +45,7 @@ public class ExcelUtils {
 
         String[][] data = new String[rowCount()][columnCount()];
 
-        for (int i = 0; i <rowCount(); i++) {
+        for (int i = 0; i < rowCount(); i++) {
             for (int j = 0; j < columnCount(); j++) {
                 String value = getCellData(i, j);
                 data[i][j] = value;
@@ -121,6 +121,11 @@ public class ExcelUtils {
 
     public int rowCount() {
         return workSheet.getLastRowNum();
+    }
+
+
+    public void printZigZag(String word, int line){
+
     }
 
 }

@@ -1,9 +1,7 @@
 package com.ignite.step_defs;
 
 
-import com.ignite.pojos.Parent;
 import com.ignite.pojos.Student;
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.sql.*;
@@ -22,26 +20,20 @@ public class SampleJDBC {
 
     @Test
     public void test(){
-        String connectionUrl = "jdbc:sqlserver://" + url + ";databaseName=CoolSIS_101;user=" + user + ";password=" + password;
+        // Create a variable for the connection string.
+        String connectionUrl = "jdbc:sqlserver://"+url+";databaseName=CoolSIS_101;user="+user+";password="+password;
 
         try {
             connection = DriverManager.getConnection(connectionUrl);
             statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
 
-           // String sql = "SELECT * FROM [stdApplications] WHERE applicationNo =" +applicationNo;
+            // String sql = "SELECT * FROM [stdApplications] WHERE applicationNo =" +applicationNo;
 
-
-            resultSet = statement.executeQuery(compareWithSQL());
-
-            Assert.assertTrue(resultSet.getInt("count") == 1);
+            resultSet = statement.executeQuery("SELECT * FROM [stdApplications] WHERE applicationNo = "+applicationNo+";");
 
             // 1nci sonuc
             System.out.println("===== 1st CALL =====");
             System.out.println("FIRST ROW: " + resultSet);
-
-            compareSQL(resultSet);
-
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -55,9 +47,7 @@ public class SampleJDBC {
         int hesapNo = resultSet.getInt("hesapNO");
 
 
-        Assert.assertTrue(resultSet.getString("firstName") == myStudent.firstName);
-        Assert.assertTrue(resultSet.getString("lastName") == myStudent.lastName);
-        Assert.assertTrue(resultSet.getString("dateOfBird") == myStudent.dateOfBird);
+
 
 
     }
