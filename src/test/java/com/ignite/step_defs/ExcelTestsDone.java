@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class ExcelReader {
+public class ExcelTestsDone {
 
     public String path = "test_resources/EIF-TestCases.xlsx";
     public String sheetName = "users";

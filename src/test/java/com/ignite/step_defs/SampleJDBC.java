@@ -13,7 +13,7 @@ public class SampleJDBC {
 
     String url = "192.168.1.15\\COOLSQLIGNITE";
     String user = "ignite";
-    String password = "Eh7ruY3!p@82";
+    String password = "Eh7ruY3!p@82";  //  aK%82Fnx!3d
 
     String applicationNo = "5902002580";
 
