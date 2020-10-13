@@ -23,7 +23,7 @@
     <properties>
         <selenium.version>3.141.59</selenium.version>
         <cuke.version>5.2.0</cuke.version>
-        <junit.version>4.13</junit.version>
+        <junit.version>4.13.1</junit.version>
         <testng.version>7.0.0</testng.version>
         <bonigarcia.version>3.7.1</bonigarcia.version>
         <aventstack.version>4.0.9</aventstack.version>
